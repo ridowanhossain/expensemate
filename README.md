@@ -12,9 +12,9 @@
   <img src="assets/img/logo.png" alt="ExpenseMate Logo" width="200">
 </h1>
 
-[View Demo](https://your-demo-link.com) • 
-[Report Bug](https://github.com/yourusername/expensemate/issues) • 
-[Request Feature](https://github.com/yourusername/expensemate/issues)
+[View Demo](https://demo.techogram.com/php/expensemate) • 
+[Report Bug](https://github.com/ridowanhossain/expensemate/issues) • 
+[Request Feature](https://github.com/ridowanhossain/expensemate/issues)
 
 </div>
 
@@ -39,33 +39,32 @@ ExpenseMate is a comprehensive personal finance management system that helps you
 
 - PHP 7.4 or higher
 - MySQL 8.0 or higher
-- Apache/Nginx web server
+- Apache/Nginx/IIS web server
 - XAMPP/WAMP/MAMP (for local development)
 
 ## 📦 Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/ridowanhossain/expensemate.git
-   ```
+1. Download the ExpenseMate files
+   - Download the latest release from our website
+   - Extract all files into your newly created directory
+   - Make sure `index.php` is in the root of your directory
 
-2. Move the project to your web server directory
-   ```bash
-   # For XAMPP
-   mv expensemate C:/xampp/htdocs/
-   ```
+2. Set up the application
+   - Start your web server and MySQL services
+   - Open your web browser and navigate to your installation
+     ```
+     http://localhost/your-folder-name
+     ```
+   - Follow the installation wizard to:
+     - Configure your database settings
+     - Set up admin credentials
+     - Complete the installation
 
-3. Create a MySQL database and import the database schema
-   ```sql
-   CREATE DATABASE expensemate;
-   ```
-
-4. Configure the database connection in `includes/db.php`
-
-5. Access the application through your web browser
-   ```
-   http://localhost/expensemate
-   ```
+3. Verify Installation
+   - Check if the application loads without errors
+   - Verify database connection
+   - Test user authentication
+   - Ensure all features are working properly
 
 ## 📋 Project Structure
 
@@ -135,7 +134,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Your Name** - *Initial work* - [YourGitHub](https://github.com/yourusername)
+- **Your Name** - *Initial work* - [YourGitHub](https://github.com/ridowanhossain)
 
 ## 🙏 Acknowledgments
 
@@ -149,6 +148,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **[⬆ back to top](#expensemate---personal-finance-management-system)**
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Your Name](https://github.com/ridowanhossain)
 
 </div>
