@@ -180,6 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="form-container">
         <h2>App Installation</h2>
+        <div id="message" class="mt-3"></div>
         <form id="installForm" method="POST">
             <div class="mb-3">
                 <label for="db_host" class="form-label">Database Host</label>
@@ -211,7 +212,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="btn btn-primary w-100">Install</button>
         </form>
-        <div id="message" class="mt-3"></div>
     </div>
 </div>
 
@@ -219,10 +219,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script>
     $('#installForm').on('submit', function (e) {
         e.preventDefault();
+        const messageDiv = $('#message');
+        const container = $('.container');
+        
+        // Scroll to container div immediately
+        $('html, body').animate({
+            scrollTop: container.offset().top
+        }, 300);
+        
         $.post('install.php', $(this).serialize(), function (response) {
-            const messageDiv = $('#message');
             if (response.success) {
                 messageDiv.html(`<div class="alert alert-success">${response.message}</div>`);
+                // Wait 5 seconds before redirecting
+                setTimeout(function() {
+                    window.location.href = 'login.php';
+                }, 5000);
             } else {
                 messageDiv.html(`<div class="alert alert-danger">${response.message}</div>`);
             }
