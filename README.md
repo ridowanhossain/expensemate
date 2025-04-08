@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 <h1 align="center">
-  <img src="assets/img/logo.png" alt="ExpenseMate Logo" width="200">
+  <img src="assets/img/ExpenseMate.png" alt="ExpenseMate Logo" width="200">
 </h1>
 
 [View Demo](https://demo.techogram.com/php/expensemate) • 
