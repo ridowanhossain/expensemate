@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+// Check if db.php exists, if not redirect to install.php
+if (!file_exists(__DIR__ . '/includes/db.php')) {
+    header('Location: install.php');
+    exit;
+}
+
 include 'includes/db.php'; // Include your database connection
 
 // Redirect if already logged in

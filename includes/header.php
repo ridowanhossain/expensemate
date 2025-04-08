@@ -1,6 +1,13 @@
 <?php
 session_start();
-include 'includes/db.php';
+
+// Check if db.php exists, if not redirect to install.php
+if (!file_exists(__DIR__ . '/db.php')) {
+    header('Location: install.php');
+    exit;
+}
+
+include 'db.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
