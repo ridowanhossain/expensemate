@@ -1,5 +1,51 @@
-<IfModule mod_headers.c>
-    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
-    Header set Pragma "no-cache"
-    Header set Expires "0"
+# Disable directory listing
+Options -Indexes
+
+# Custom 404 error handling
+ErrorDocument 404 /expensemate/error.php
+
+# Protect sensitive files
+<FilesMatch "^\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+# Prevent script execution in uploads directory if exists
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^assets/.*\.(php|php3|php4|php5|php7|phtml|pl|py|jsp|asp|htm|shtml|sh|cgi)$ - [F,L]
 </IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+# Protect against XSS attacks
+Header set X-XSS-Protection "1; mode=block"
+# Prevent MIME-sniffing
+Header set X-Content-Type-Options "nosniff"
+# Protect against clickjacking
+Header set X-Frame-Options "SAMEORIGIN"
+# Enable HSTS
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+# Restrict referrer information
+Header set Referrer-Policy "same-origin"
+</IfModule>
+
+# Prevent access to system files
+<FilesMatch "^(composer\.json|composer\.lock|package\.json|package-lock\.json|README\.md)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+# Block access to hidden files and directories
+<IfModule mod_rewrite.c>
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+# Force HTTPS (uncomment if SSL is configured)
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#</IfModule>

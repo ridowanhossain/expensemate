@@ -225,15 +225,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Scroll to container div immediately
         $('html, body').animate({
             scrollTop: container.offset().top
-        }, 300);
+        }, 500);
         
         $.post('install.php', $(this).serialize(), function (response) {
             if (response.success) {
                 messageDiv.html(`<div class="alert alert-success">${response.message}</div>`);
-                // Wait 5 seconds before redirecting
+                // Wait 3 seconds before redirecting
                 setTimeout(function() {
                     window.location.href = 'login.php';
-                }, 5000);
+                }, 3000);
             } else {
                 messageDiv.html(`<div class="alert alert-danger">${response.message}</div>`);
             }
