@@ -175,6 +175,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <div class="container">
+    <div class="text-center mb-4">
+        <img src="assets/img/logo.png" alt="ExpenseMate Logo" class="img-fluid" style="max-width: 200px;">
+    </div>
     <div class="form-container">
         <h2>App Installation</h2>
         <form id="installForm" method="POST">
